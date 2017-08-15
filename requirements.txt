@@ -3,5 +3,4 @@ Flask-RESTful
 Flask-JWT
 Flask-SQLAlchemy
 uwsgi
-pip freeze
 flask-sqlalchemy psycopg2
