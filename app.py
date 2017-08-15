@@ -9,7 +9,7 @@ from functools import wraps
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = 'thisissecret'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////Users/carlosfranca/Downloads/soufiscal/api_soufiscal/soufiscal.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///soufiscal.db'
 
 db = SQLAlchemy(app)
 
