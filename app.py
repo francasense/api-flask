@@ -198,10 +198,10 @@ def get_all_todos(current_user):
 
     return jsonify({'todos' : output})
 
-@app.route('/todo/<email>', methods=['GET'])
+@app.route('/todo/<name_user>', methods=['GET'])
 @token_required
-def get_one_todos(current_user,email):
-    todos = Todo.query.filter_by(email=email, user_id=current_user.id).all()
+def get_one_todos(current_user,name_user):
+    todos = Todo.query.filter_by(name_user=name_user, user_id=current_user.id).all()
 
     output = []
 
