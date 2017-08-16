@@ -23,14 +23,15 @@ class User(db.Model):
 
 class Todo(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    email = db.Column(db.String(100))
-    name_user = db.Column(db.String(50))
-    titulo = db.Column(db.String(50))
+    name_user = db.Column(db.String(10))
+    titulo = db.Column(db.String(30))
     valor_inicial = db.Column(db.Float)
     data_inicial = db.Column(db.String(50))
     data_entrega = db.Column(db.String(50))
     data_postagem = db.Column(db.String(50))
-    cidade = db.Column(db.String(50))
+    url_foto = db.Column(db.String)
+    latitude = db.Column(db.String)
+    longitude = db.Column(db.String)
     descricao = db.Column(db.String(300))
     resposta = db.Column(db.String(400))
     status = db.Column(db.Integer)
@@ -182,11 +183,16 @@ def get_all_todos(current_user):
         todo_data['data_inicial'] = todo.data_inicial
         todo_data['data_entrega'] = todo.data_entrega
         todo_data['data_postagem'] = todo.data_postagem
-        todo_data['cidade'] = todo.cidade
+        todo_data['url_foto'] = todo.url_foto
+        todo_data['latitude'] = todo.latitude
+        todo_data['longitude'] = todo.longitude
         todo_data['descricao'] = todo.descricao
         todo_data['resposta'] = todo.resposta
         todo_data['status'] = todo.status
         todo_data['user_id'] = todo.user_id
+
+
+            
 
         output.append(todo_data)
 
@@ -209,7 +215,9 @@ def get_one_todos(current_user,email):
         todo_data['data_inicial'] = todo.data_inicial
         todo_data['data_entrega'] = todo.data_entrega
         todo_data['data_postagem'] = todo.data_postagem
-        todo_data['cidade'] = todo.cidade
+        todo_data['url_foto'] = todo.url_foto
+        todo_data['latitude'] = todo.latitude
+        todo_data['longitude'] = todo.longitude
         todo_data['descricao'] = todo.descricao
         todo_data['resposta'] = todo.resposta
         todo_data['status'] = todo.status
@@ -225,8 +233,7 @@ def get_one_todos(current_user,email):
 def create_todo(current_user):
 #def create_todo():
     data = request.get_json()
-
-    new_todo = Todo(email=data['email'], name_user=data['name_user'], titulo=data['titulo'], valor_inicial=data['valor_inicial'], data_inicial=data['data_inicial'], data_entrega=data['data_entrega'], data_postagem=data['data_postagem'], cidade=data['cidade'], descricao=data['descricao'], resposta=data['resposta'], status=data['status'],user_id=current_user.id)
+    new_todo = Todo(email=data['email'], name_user=data['name_user'], titulo=data['titulo'], valor_inicial=data['valor_inicial'], data_inicial=data['data_inicial'], data_entrega=data['data_entrega'], data_postagem=data['data_postagem'], url_foto=data['url_foto'] ,latitude=data['latitude'] ,longitude=data['longitude'] ,descricao=data['descricao'], resposta=data['resposta'], status=data['status'],user_id=current_user.id)
     db.session.add(new_todo)
     db.session.commit()
 
