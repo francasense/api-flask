@@ -192,7 +192,7 @@ def get_all_todos(current_user):
         todo_data['user_id'] = todo.user_id
 
 
-            
+
 
         output.append(todo_data)
 
