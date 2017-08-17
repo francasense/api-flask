@@ -26,7 +26,7 @@ class User(db.Model):
 class Todo(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(50))
-    name_user = db.Column(db.String(10))
+    name_user = db.Column(db.String(50))
     titulo = db.Column(db.String(30))
     valor_inicial = db.Column(db.Float)
     data_inicial = db.Column(db.String(50))
