@@ -5,11 +5,13 @@ from werkzeug.security import generate_password_hash, check_password_hash
 import jwt
 import datetime
 from functools import wraps
+import psycopg2
 
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = 'thisissecret'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///soufiscal.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://qmnxydfuaxzkza:dfff739fafdbd7d9fc158006b1f482279e0bdf2bfe56e5580945cbd275b50862@ec2-54-163-236-33.compute-1.amazonaws.com/d2b5k9dijd6rvh'
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///soufiscal.db'
 
 db = SQLAlchemy(app)
 
