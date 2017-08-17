@@ -201,6 +201,37 @@ def get_all_todos(current_user):
 
     return jsonify({'todos' : output})
 
+@app.route('/reclamacaotodos', methods=['GET'])
+def get_all_todos2():
+    todos = Todo.query.filter_by(user_id=1).all()
+
+    output = []
+
+    for todo in todos:
+        todo_data = {}
+        todo_data['id'] = todo.id
+        todo_data['email'] = todo.email
+        todo_data['name_user'] = todo.name_user
+        todo_data['titulo'] = todo.titulo
+        todo_data['valor_inicial'] = todo.valor_inicial
+        todo_data['data_inicial'] = todo.data_inicial
+        todo_data['data_entrega'] = todo.data_entrega
+        todo_data['data_postagem'] = todo.data_postagem
+        todo_data['url_foto'] = todo.url_foto
+        todo_data['latitude'] = todo.latitude
+        todo_data['longitude'] = todo.longitude
+        todo_data['descricao'] = todo.descricao
+        todo_data['resposta'] = todo.resposta
+        todo_data['status'] = todo.status
+        todo_data['user_id'] = todo.user_id
+
+
+
+
+        output.append(todo_data)
+
+    return jsonify({'todos' : output})
+
 @app.route('/todo/<name_user>', methods=['GET'])
 @token_required
 def get_one_todos(current_user,name_user):
