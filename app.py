@@ -10,7 +10,7 @@ import psycopg2
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = 'thisissecret'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://fybomulfymmnfi:fcd622768bfd9b40f5ee1ac9e0f265973b179fa5290a5387a1312bead9f2e6ae@ec2-23-21-184-181.compute-1.amazonaws.com/d9qk6pb9cie137'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://ryjrxfunohbuog:897484ce454b257abac939f6a38c1e5010f598d881b3c389af8c58a9fa1aa345@ec2-184-73-202-112.compute-1.amazonaws.com/dc6cr7lq66ttf6'
 #app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///soufiscal.db'
 
 db = SQLAlchemy(app)
@@ -33,8 +33,8 @@ class Todo(db.Model):
     data_entrega = db.Column(db.String(50))
     data_postagem = db.Column(db.String(50))
     url_foto = db.Column(db.String)
-    latitude = db.Column(db.Integer)
-    longitude = db.Column(db.Integer)
+    latitude = db.Column(db.Float)
+    longitude = db.Column(db.Float)
     descricao = db.Column(db.String(300))
     resposta = db.Column(db.String(400))
     status = db.Column(db.Integer)
