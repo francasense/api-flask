@@ -10,7 +10,7 @@ import psycopg2
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = 'thisissecret'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://ryjrxfunohbuog:897484ce454b257abac939f6a38c1e5010f598d881b3c389af8c58a9fa1aa345@ec2-184-73-202-112.compute-1.amazonaws.com/dc6cr7lq66ttf6'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://vfhlhmyxxyldgg:6b2b0a4361861587272b6d549951134629146d52af4797a4c546272ece8bc08d@ec2-54-221-207-192.compute-1.amazonaws.com/d68u725d65ke6f'
 #app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///soufiscal.db'
 
 db = SQLAlchemy(app)
@@ -203,7 +203,7 @@ def get_all_todos(current_user):
 
 @app.route('/reclamacaotodos', methods=['GET'])
 def get_all_todos2():
-    todos = Todo.query.filter_by(user_id=1).all()
+    todos = Todo.query.all()
 
     output = []
 
